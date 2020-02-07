@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+    postgres:
+        image: postgres:12-alpine
+        container_name: postgres
+        environment:
+        - POSTGRES_DB=hackathon
+        - POSTGRES_USER=rootusr
+        - POSTGRES_PASSWORD=easypassword
+        - PGDATA=/var/lib/postgresql/data/db-files/
+        volumes:
+        - ./postgres/db-data:/var/lib/postgresql/data:rw
+        - ./postgres/entrypoint/:/docker-entrypoint-initdb.d/
+        ports:
+        - "5432:5432"
+
+    adminer:
+        image: adminer
+        container_name: adminer
+        depends_on:
+        - postgres
+        restart: always
+        ports: 
+            - "80:8080"
+    
+volumes:
+    db-data: {}
