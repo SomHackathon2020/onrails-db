@@ -7,7 +7,7 @@ You need docker and docker-compose.
 http://db.localhost/ will access adminer.
 localhost:5432 is the postgres url.
 ### Credentials
-| User          | Password  |
-| ------------- | --------- |
-| hackathon2020 | hackathon |
+| User          | Password  | | server |
+| ------------- | --------- | | --------- |
+| hackathon2020 | hackathon | | postgres |
 
